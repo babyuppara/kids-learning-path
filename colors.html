@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Learn Colors</title>
+
+<style>
+
+body{
+text-align:center;
+font-family: Comic Sans MS;
+background:#f4f4f4;
+}
+
+h1{
+color:#ff6600;
+}
+
+.grid{
+display:grid;
+grid-template-columns: repeat(5,1fr);
+gap:20px;
+padding:20px;
+}
+
+.color-card{
+padding:25px;
+border-radius:15px;
+cursor:pointer;
+color:white;
+font-weight:bold;
+font-size:18px;
+box-shadow:0 4px 8px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.color-card:hover{
+transform:scale(1.1);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🎨 Learn Colors</h1>
+
+<div class="grid">
+
+<div class="color-card" style="background:red" onclick="speak('Red')">Red</div>
+<div class="color-card" style="background:blue" onclick="speak('Blue')">Blue</div>
+<div class="color-card" style="background:yellow;color:black" onclick="speak('Yellow')">Yellow</div>
+<div class="color-card" style="background:green" onclick="speak('Green')">Green</div>
+<div class="color-card" style="background:orange" onclick="speak('Orange')">Orange</div>
+
+<div class="color-card" style="background:purple" onclick="speak('Purple')">Purple</div>
+<div class="color-card" style="background:pink;color:black" onclick="speak('Pink')">Pink</div>
+<div class="color-card" style="background:brown" onclick="speak('Brown')">Brown</div>
+<div class="color-card" style="background:black" onclick="speak('Black')">Black</div>
+<div class="color-card" style="background:white;color:black;border:1px solid #ccc" onclick="speak('White')">White</div>
+
+<div class="color-card" style="background:gray" onclick="speak('Gray')">Gray</div>
+<div class="color-card" style="background:cyan;color:black" onclick="speak('Cyan')">Cyan</div>
+<div class="color-card" style="background:magenta" onclick="speak('Magenta')">Magenta</div>
+<div class="color-card" style="background:maroon" onclick="speak('Maroon')">Maroon</div>
+<div class="color-card" style="background:navy" onclick="speak('Navy')">Navy</div>
+
+<div class="color-card" style="background:olive" onclick="speak('Olive')">Olive</div>
+<div class="color-card" style="background:teal" onclick="speak('Teal')">Teal</div>
+<div class="color-card" style="background:lime;color:black" onclick="speak('Lime')">Lime</div>
+<div class="color-card" style="background:beige;color:black" onclick="speak('Beige')">Beige</div>
+<div class="color-card" style="background:turquoise;color:black" onclick="speak('Turquoise')">Turquoise</div>
+
+<div class="color-card" style="background:lavender;color:black" onclick="speak('Lavender')">Lavender</div>
+<div class="color-card" style="background:indigo" onclick="speak('Indigo')">Indigo</div>
+<div class="color-card" style="background:gold;color:black" onclick="speak('Gold')">Gold</div>
+<div class="color-card" style="background:silver;color:black" onclick="speak('Silver')">Silver</div>
+<div class="color-card" style="background:peach;color:black" onclick="speak('Peach')">Peach</div>
+
+<div class="color-card" style="background:coral;color:black" onclick="speak('Coral')">Coral</div>
+<div class="color-card" style="background:mint;color:black" onclick="speak('Mint')">Mint</div>
+<div class="color-card" style="background:violet" onclick="speak('Violet')">Violet</div>
+<div class="color-card" style="background:aqua;color:black" onclick="speak('Aqua')">Aqua</div>
+<div class="color-card" style="background:cream;color:black" onclick="speak('Cream')">Cream</div>
+
+</div>
+
+<script>
+
+function speak(color){
+
+let msg = new SpeechSynthesisUtterance(color);
+
+speechSynthesis.speak(msg);
+
+}
+
+</script>
+
+</body>
+</html>

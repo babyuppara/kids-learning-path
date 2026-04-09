@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kids Numbers 1–100</title>
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background: #fff8dc;
+  text-align: center;
+}
+h1{
+  color: #ff4d4d;
+  font-size: 40px;
+}
+.chart{
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(10, 70px); /* 10 numbers per row */
+  gap: 15px;
+  justify-content: center;
+}
+.number{
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+.highlight{
+  background-color: yellow;
+  transform: scale(1.3);
+}
+button{
+  font-size: 20px;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+</style>
+
+<script>
+let speaking = false;
+let currentIndex = 1;
+let utterance;
+
+function generateNumbers(){
+  let chart = document.getElementById("chart");
+  for(let i=1; i<=100; i++){
+    let span = document.createElement("span");
+    span.className = "number";
+    span.id = "num"+i;
+    span.innerText = i;
+    chart.appendChild(span);
+  }
+}
+
+function speakNumbers(){
+  speaking = true;
+  currentIndex = 1;
+  speakNext();
+}
+
+function speakNext(){
+  if(!speaking || currentIndex > 100) return;
+
+  // remove previous highlight
+  if(currentIndex > 1){
+    document.getElementById("num"+(currentIndex-1)).classList.remove("highlight");
+  }
+
+  // highlight current number
+  let currentSpan = document.getElementById("num"+currentIndex);
+  currentSpan.classList.add("highlight");
+
+  // speak current number
+  utterance = new SpeechSynthesisUtterance(currentIndex.toString());
+  utterance.rate = 0.9;
+  utterance.pitch = 1.5;
+  utterance.onend = function(){
+    currentIndex++;
+    speakNext();
+  };
+  speechSynthesis.speak(utterance);
+}
+
+function stopSpeaking(){
+  speaking = false;
+  speechSynthesis.cancel();
+  // remove highlight
+  if(currentIndex <= 100){
+    let currentSpan = document.getElementById("num"+currentIndex);
+    if(currentSpan) currentSpan.classList.remove("highlight");
+  }
+}
+</script>
+</head>
+
+<body onload="generateNumbers()">
+<h1>Numbers 1–100</h1>
+<button onclick="speakNumbers()">▶️ Play 1–100</button>
+<button onclick="stopSpeaking()">⏹️ Stop</button>
+<div id="chart" class="chart"></div>
+</body>
+</html>

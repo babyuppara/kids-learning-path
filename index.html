@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Kids Learning</title>
+
+<style>
+
+body{
+margin:0;
+font-family: 'Comic Sans MS';
+background: linear-gradient(to right,#a1ffce,#faffd1);
+text-align:center;
+}
+
+header{
+background:#ff9800;
+padding:20px;
+color:white;
+font-size:35px;
+}
+
+.container{
+display:grid;
+grid-template-columns: repeat(3,1fr);
+gap:25px;
+padding:40px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.1);
+background:#fff3cd;
+}
+
+.card img{
+width:80px;
+}
+
+.search-box{
+margin-top:20px;
+}
+
+input{
+padding:12px;
+font-size:18px;
+border-radius:10px;
+border:none;
+width:250px;
+}
+
+button{
+padding:12px 20px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:#ff5722;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#e64a19;
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+background:#4caf50;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+🌈 Smart Kids Learning App
+</header>
+
+<div class="container">
+
+<div class="card" onclick="location.href='alphabets.html'">
+<img src="images/alphabet.png">
+<h2>🔤 Alphabets</h2>
+<p>Learn ABC with sounds</p>
+</div>
+
+<div class="card" onclick="location.href='animals.html'">
+<img src="images/animals.png">
+<h2>🐶 Animals</h2>
+<p>Learn animals and sounds</p>
+</div>
+
+<div class="card" onclick="location.href='fruits.html'">
+<img src="images/fruits.png">
+<h2>🍎 Fruits</h2>
+<p>Learn fruits with pictures</p>
+</div>
+
+<div class="card" onclick="location.href='rhymes.html'">
+<img src="images/rhymes.png">
+<h2>🎵 Rhymes</h2>
+<p>Listen to fun rhymes</p>
+</div>
+
+<div class="card" onclick="location.href='colors.html'">
+<h2>🎨 Colors</h2>
+<p>Learn beautiful colors</p>
+</div>
+
+<div class="card" onclick="location.href='quiz.html'">
+<h2>🧠 Quiz</h2>
+<p>Play learning games</p>
+</div>
+
+</div>
+
+<div class="search-box">
+
+<h2>🔎 Ask Something</h2>
+
+<input type="text" id="searchBox" placeholder="Ask about mango, dog, tree">
+
+<button onclick="search()">Search</button>
+
+<p id="answer"></p>
+
+</div>
+
+<footer>
+Made for Kids Learning ❤️
+</footer>
+
+<script>
+
+function search(){
+
+let word = document.getElementById("searchBox").value.toLowerCase();
+
+let answers = {
+
+"mango":"🥭 Mango is a sweet fruit that grows on trees.",
+"dog":"🐶 Dog is a friendly animal that barks.",
+"apple":"🍎 Apple is a healthy fruit.",
+"tree":"🌳 Tree is a big plant that gives oxygen.",
+"cat":"🐱 Cat is a small animal that says meow."
+
+};
+
+if(answers[word]){
+document.getElementById("answer").innerText = answers[word];
+}
+else{
+document.getElementById("answer").innerText = "I don't know that yet.";
+}
+
+}
+
+</script>
+
+</body>
+</html>

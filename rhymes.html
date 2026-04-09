@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kids Rhymes</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #fff8dc;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #ff4d4d;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.chart {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.rhyme {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  font-size: 22px;
+  color: #333;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.rhyme:hover {
+  transform: scale(1.05);
+}
+
+/* Text Colors */
+.red {color: #ff4d4d;}
+.orange {color: #ff944d;}
+.yellow {color: #ffcc00;}
+.green {color: #33cc33;}
+.blue {color: #3399ff;}
+.purple {color: #9966ff;}
+.pink {color: #ff99cc;}
+.teal {color: #33cccc;}
+.brown {color: #cc9966;}
+.magenta {color: #ff33ff;}
+</style>
+
+<script>
+function speak(text){
+  let msg = new SpeechSynthesisUtterance(text);
+  msg.rate = 0.9;
+  msg.pitch = 1.3;
+  speechSynthesis.speak(msg);
+}
+</script>
+</head>
+<body>
+
+<h1>Nursery Rhymes for Kids</h1>
+
+<div class="chart">
+  <div class="rhyme red" onclick="speak('Twinkle, Twinkle, Little Star. How I wonder what you are. Up above the world so high, like a diamond in the sky.')">
+    Twinkle, Twinkle, Little Star<br>
+    How I Wonder What You Are!<br>
+    Up Above the World So High,<br>
+    Like a Diamond in the Sky.
+  </div>
+
+  <div class="rhyme orange" onclick="speak('Humpty Dumpty sat on a wall. Humpty Dumpty had a great fall. All the King\'s horses and all the King\'s men couldn\'t put Humpty together again.')">
+    Humpty Dumpty sat on a wall,<br>
+    Humpty Dumpty had a great fall.<br>
+    All the King's horses and all the King's men,<br>
+    Couldn't put Humpty together again.
+  </div>
+
+  <div class="rhyme yellow" onclick="speak('Baa Baa Black Sheep, have you any wool? Yes sir, yes sir, three bags full.')">
+    Baa, Baa, Black Sheep,<br>
+    Have you any wool?<br>
+    Yes sir, yes sir,<br>
+    Three bags full.
+  </div>
+
+  <div class="rhyme green" onclick="speak('Jack and Jill went up the hill to fetch a pail of water. Jack fell down and broke his crown, and Jill came tumbling after.')">
+    Jack and Jill went up the hill<br>
+    To fetch a pail of water.<br>
+    Jack fell down and broke his crown,<br>
+    And Jill came tumbling after.
+  </div>
+
+  <div class="rhyme blue" onclick="speak('Little Miss Muffet sat on a tuffet, eating her curds and whey. Along came a spider, who sat down beside her and frightened Miss Muffet away.')">
+    Little Miss Muffet<br>
+    Sat on a tuffet,<br>
+    Eating her curds and whey.<br>
+    Along came a spider,<br>
+    Who sat down beside her,<br>
+    And frightened Miss Muffet away.
+  </div>
+
+  <div class="rhyme purple" onclick="speak('Mary had a little lamb, its fleece was white as snow. Everywhere that Mary went, the lamb was sure to go.')">
+    Mary had a little lamb,<br>
+    Its fleece was white as snow,<br>
+    And everywhere that Mary went,<br>
+    The lamb was sure to go.
+  </div>
+
+  <div class="rhyme pink" onclick="speak('Hickory Dickory Dock, the mouse ran up the clock. The clock struck one, the mouse ran down, Hickory Dickory Dock.')">
+    Hickory Dickory Dock,<br>
+    The mouse ran up the clock.<br>
+    The clock struck one,<br>
+    The mouse ran down,<br>
+    Hickory Dickory Dock.
+  </div>
+
+  <div class="rhyme teal" onclick="speak('Old MacDonald had a farm, E-I-E-I-O. And on his farm he had some cows, E-I-E-I-O.')">
+    Old MacDonald had a farm,<br>
+    E-I-E-I-O.<br>
+    And on his farm he had some cows,<br>
+    E-I-E-I-O.
+  </div>
+
+  <div class="rhyme brown" onclick="speak('Row, row, row your boat, gently down the stream. Merrily, merrily, merrily, merrily, life is but a dream.')">
+    Row, row, row your boat,<br>
+    Gently down the stream.<br>
+    Merrily, merrily, merrily, merrily,<br>
+    Life is but a dream.
+  </div>
+
+  <div class="rhyme magenta" onclick="speak('Ring-a-ring o\' roses, a pocket full of posies. A-tishoo! A-tishoo! We all fall down.')">
+    Ring-a-ring o' roses,<br>
+    A pocket full of posies,<br>
+    A-tishoo! A-tishoo!<br>
+    We all fall down.
+  </div>
+  
+  <div class="rhyme red" onclick="speak('The wheels on the bus go round and round, round and round. The wheels on the bus go round and round, all through the town.')">
+    The wheels on the bus go round and round,<br>
+    Round and round,<br>
+    Round and round.<br>
+    The wheels on the bus go round and round,<br>
+    All through the town.
+  </div>
+
+  <div class="rhyme purple" onclick="speak('Pat-a-cake, pat-a-cake, baker\'s man. Bake me a cake as fast as you can. Roll it, and pat it, and mark it with a B. Put it in the oven for baby and me.')">
+    Pat-a-cake, pat-a-cake, baker's man,<br>
+    Bake me a cake as fast as you can.<br>
+    Roll it, and pat it, and mark it with a B,<br>
+    Put it in the oven for baby and me.
+  </div>
+
+  <div class="rhyme blue" onclick="speak('London Bridge is falling down, falling down, falling down. London Bridge is falling down, my fair lady.')">
+    London Bridge is falling down,<br>
+    Falling down, falling down.<br>
+    London Bridge is falling down,<br>
+    My fair lady.
+  </div>
+
+
+</div>
+
+</body>
+</html>

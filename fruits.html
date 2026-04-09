@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kids Fruits Learning App</title>
+
+<style>
+
+body{
+font-family: Arial;
+text-align:center;
+background:#fff8dc;
+}
+
+h1{
+color:#ff6600;
+}
+
+.container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+margin-top:20px;
+}
+
+.card{
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 3px 8px gray;
+width:150px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.1);
+}
+
+.card img{
+width:100px;
+height:100px;
+object-fit:cover;
+border-radius:10px;
+}
+
+button{
+padding:10px 20px;
+font-size:16px;
+margin-top:20px;
+cursor:pointer;
+background:#ff6600;
+color:white;
+border:none;
+border-radius:5px;
+}
+
+button:hover{
+background:#ff4500;
+}
+
+.quiz{
+display:none;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🍎 Kids Fruits Learning</h1>
+<p>Click a fruit to hear its name</p>
+
+<div id="learnSection">
+
+<div class="container">
+
+<div class="card" onclick="speak('Apple')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg">
+<p>Apple</p>
+</div>
+
+<div class="card" onclick="speak('Banana')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg">
+<p>Banana</p>
+</div>
+
+<div class="card" onclick="speak('Orange')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg">
+<p>Orange</p>
+</div>
+
+<div class="card" onclick="speak('Mango')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg">
+<p>Mango</p>
+</div>
+
+<div class="card" onclick="speak('Pineapple')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Pineapple_and_cross_section.jpg">
+<p>Pineapple</p>
+</div>
+
+<div class="card" onclick="speak('Strawberry')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/29/PerfectStrawberry.jpg">
+<p>Strawberry</p>
+</div>
+
+<div class="card" onclick="speak('Guava')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Guava_ID.jpg">
+<p>Guava</p>
+</div>
+
+<div class="card" onclick="speak('Kiwi')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Kiwi_aka.jpg">
+<p>Kiwi</p>
+</div>
+
+</div>
+
+<button onclick="startQuiz()">Next → Start Quiz</button>
+
+</div>
+
+
+<div class="quiz" id="quizSection">
+
+<h2>🎮 Fruit Quiz</h2>
+
+<p id="question">Which fruit is yellow?</p>
+
+<button onclick="checkAnswer('Apple')">Apple</button>
+<button onclick="checkAnswer('Banana')">Banana</button>
+<button onclick="checkAnswer('Orange')">Orange</button>
+<button onclick="checkAnswer('Watermelon')">Orange</button>
+<button onclick="checkAnswer('Grapes')">Orange</button>
+
+<h3 id="result"></h3>
+
+</div>
+
+
+<script>
+
+function speak(name){
+
+let speech = new SpeechSynthesisUtterance();
+speech.text = name;
+speechSynthesis.speak(speech);
+
+}
+
+function startQuiz(){
+
+document.getElementById("learnSection").style.display="none";
+document.getElementById("quizSection").style.display="block";
+
+}
+
+function checkAnswer(answer){
+
+let result=document.getElementById("result");
+
+if(answer==="Banana"){
+result.innerHTML="✅ Correct!";
+}
+else{
+result.innerHTML="❌ Try Again!";
+}
+
+}
+
+</script>
+
+</body>
+</html>
