@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fun Quiz Game</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+        }
+        h1 {
+            color: #ff4081;
+        }
+        .question {
+            font-size: 24px;
+            margin: 20px;
+            font-weight: bold;
+        }
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #673ab7;
+            color: white;
+        }
+        button:hover {
+            background-color: #512da8;
+        }
+        #result {
+            font-size: 22px;
+            margin-top: 20px;
+        }
+        #timer {
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🎮 Fun Animal Quiz</h1>
+<div id="timer">Time: 10</div>
+
+<div class="question" id="question"></div>
+<div id="options"></div>
+<div id="result"></div>
+
+<script>
+let questions = [
+    { q: "Who says Meow? 🐾", options: ["Dog", "Cat", "Lion", "Cow"], answer: "Cat" },
+    { q: "Who is big? 🐘", options: ["Rat", "Elephant", "Cat", "Ant"], answer: "Elephant" },
+    { q: "Who barks? 🐕", options: ["Dog", "Fish", "Bird", "Snake"], answer: "Dog" },
+    { q: "Who gives milk? 🥛", options: ["Tiger", "Cow", "Fox", "Lion"], answer: "Cow" },
+    { q: "Who can fly? 🐦", options: ["Dog", "Cat", "Bird", "Elephant"], answer: "Bird" }
+];
+
+let current = 0;
+let score = 0;
+let time = 10;
+let timer;
+
+function startTimer() {
+    time = 10;
+    document.getElementById("timer").innerText = "Time: " + time;
+
+    timer = setInterval(() => {
+        time--;
+        document.getElementById("timer").innerText = "Time: " + time;
+
+        if(time === 0) {
+            clearInterval(timer);
+            nextQuestion();
+        }
+    }, 1000);
+}
+
+function loadQuestion() {
+    let q = questions[current];
+    document.getElementById("question").innerText = q.q;
+
+    let optionsHTML = "";
+    q.options.forEach(opt => {
+        optionsHTML += `<button onclick="checkAnswer('${opt}')">${opt}</button>`;
+    });
+
+    document.getElementById("options").innerHTML = optionsHTML;
+    startTimer();
+}
+
+function checkAnswer(ans) {
+    clearInterval(timer);
+
+    if(ans === questions[current].answer) {
+        document.getElementById("result").innerText = "✅ Correct!";
+        score++;
+        playSound(true);
+    } else {
+        document.getElementById("result").innerText = "❌ Wrong!";
+        playSound(false);
+    }
+
+    setTimeout(nextQuestion, 1000);
+}
+
+function nextQuestion() {
+    current++;
+    document.getElementById("result").innerText = "";
+
+    if(current < questions.length) {
+        loadQuestion();
+    } else {
+        document.getElementById("question").innerText = "🎉 Game Over!";
+        document.getElementById("options").innerHTML = "";
+        document.getElementById("timer").innerText = "";
+        document.getElementById("result").innerText = "Score: " + score;
+    }
+}
+
+function playSound(correct) {
+    let audio = new Audio(correct 
+        ? "https://www.soundjay.com/buttons/sounds/button-3.mp3"
+        : "https://www.soundjay.com/buttons/sounds/button-10.mp3");
+    audio.play();
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
